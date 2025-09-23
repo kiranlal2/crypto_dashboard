@@ -72,12 +72,7 @@ export default function App() {
     <div style={styles.container}>
       <header style={styles.header}>
         <h2>Crypto Dashboard</h2>
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search name..."
-          style={styles.input}
-        />
+        <input value={query} onChange={(e) => setQuery(e.target.value)} style={styles.searchinput} type="text" name="search" id="search" placeholder="Search the Crypto Name" />
       </header>
 
       <main style={styles.main}>
@@ -110,8 +105,8 @@ export default function App() {
 
 const styles = {
   container: { with: "100dvw", padding: "50px", fontFamily: "sans-serif", backgroundColor: "#0d1017", color: "#FFF" },
-  header: { display: "flex", justifyContent: "space-between", marginBottom: "20px", backgroundColor: "#000", padding: "20px", borderRadius: "10px" },
-  input: { padding: "0px 20px",margin: 0,  fontSize: "14px", borderRadius: "6px" },
+  header: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", backgroundColor: "#000", padding: "20px", borderRadius: "10px" },
+  searchinput: { borderRadius: "30px", height: "20px", padding: "10px 20px", border: "none", outline: "none", width: "200px", backgroundColor: "#1f2730", color: "#FFF" },
   main: { display: "flex", gap: "20px", padding: "20px", backgroundColor: "#000", borderRadius: "10px" },
   maincontent: { display: "flex", flexDirection: "column", flex: 5, gap: "20px", padding: "20px" },
   right: { flex: 1 },

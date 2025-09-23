@@ -35,5 +35,5 @@ export default CoinCard;
 const styles = {
     card: { display: 'flex', flexDirection: 'column',  backgroundColor: "#0d1017", padding: 12, borderRadius: 8, border: '1px solid #1f2730', justifyContent: 'space-between', gap: 6 },
     cardDetails: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '6px 0' },
-    btn: { padding: '6px 10px', borderRadius: 6, border: 'none', background: '#5b6cff', color: 'white', cursor: 'pointer' }
+    btn: { padding: '6px 10px', borderRadius: 6, border: 'none', background: '#000', color: 'white', cursor: 'pointer' }
 }

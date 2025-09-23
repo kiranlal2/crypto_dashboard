@@ -117,7 +117,7 @@ export default function App() {
       </main>
 
       <footer style={styles.footer}>
-        Data from CoinGecko — auto-refresh every 10s. Caching per page enabled.
+        Data from CoinGecko — © {new Date().getFullYear()} Crypto Dashboard. All rights reserved by Kiran lal J.
       </footer>
     </div>
   );

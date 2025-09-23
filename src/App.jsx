@@ -77,7 +77,7 @@ export default function App() {
 
       <main style={styles.main}>
         <section style={styles.maincontent}>
-          <SearchFilter filter={filter} setFilter={setFilter} page={page} setPage={setPage} />
+          <SearchFilter style={styles.filter} filter={filter} setFilter={setFilter} page={page} setPage={setPage} />
           <div style={styles.grid}>
             <Sidebar />
             <div style={styles.gridcards}>

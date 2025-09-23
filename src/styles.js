@@ -5,7 +5,7 @@ input: { padding: '8px 12px', borderRadius: 8, border: '1px solid #31363f', back
 main: { display: 'flex', gap: 18 },
 left: { flex: 1 },
 right: { width: 320, background: '#0b1220', padding: 12, borderRadius: 8, border: '1px solid #1f2730' },
-controls: { display: 'flex', justifyContent: 'right', marginBottom: 12 },
+controls: { display: 'flex', justifyContent: 'right', alignItems: 'center', marginBottom: 12 },
 btn: { padding: '6px 10px', borderRadius: 6, border: 'none', background: '#5b6cff', color: 'white', cursor: 'pointer' },
 pageBtn: { padding: '6px 8px', borderRadius: 6, marginRight: 6, border: '1px solid #263040', background: '#091018', color: '#cfe3ff' },
 portItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 8, borderRadius: 6, background: '#071019', marginBottom: 8 },

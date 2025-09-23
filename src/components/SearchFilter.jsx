@@ -5,7 +5,7 @@ import styles from '../styles';
 export default function SearchFilter({ filter, setFilter, page, setPage }) {
     return (
         <div style={styles.controls}>
-            <select style={{padding: '10px', borderRadius: 6, border: 'none'}} value={filter} onChange={e=>setFilter(e.target.value)}>
+            <select style={{padding: '10px', borderRadius: "10px", border: '1px solid #263040', background: '#091018', color: '#cfe3ff' }} value={filter} onChange={e=>setFilter(e.target.value)}>
                 <option value="ALL">All</option>
                 <option value="GAINERS">Top Gainers</option>
                 <option value="LOSERS">Top Losers</option>

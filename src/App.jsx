@@ -13,6 +13,13 @@ export default function App() {
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const [filter, setFilter] = useState(null);
   const [page, setPage] = useState(1);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // debounce handler
   const debouncer = useRef(null);
@@ -68,6 +75,19 @@ export default function App() {
     [portfolioState.items]
   );
 
+  // styles moved inside App to access isMobile
+  const styles = {
+    container: { with: "100dvw", padding: "50px", fontFamily: "sans-serif", backgroundColor: "#0d1017", color: "#FFF" },
+    header: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", backgroundColor: "#000", padding: "20px", borderRadius: "10px" },
+    searchinput: { borderRadius: "30px", height: "20px", padding: "10px 20px", border: "none", outline: "none", width: "200px", backgroundColor: "#1f2730", color: "#FFF" },
+    main: { display: "flex", flexDirection: isMobile ? "column" : "row", gap: "20px", padding: "20px", backgroundColor: "#000", borderRadius: "10px" },
+    maincontent: { display: "flex", flexDirection: "column", flex: 5, gap: "20px", padding: "20px" },
+    right: { flex: 1 },
+    grid: { display: "grid", gridTemplateColumns: isMobile ? "1fr" : "3fr 10fr", gap: "16px" },
+    gridcards: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "16px" },
+    footer: { marginTop: "20px", fontSize: "12px", color: "#888" },
+  };
+
   return (
     <div style={styles.container}>
       <header style={styles.header}>
@@ -102,15 +122,3 @@ export default function App() {
     </div>
   );
 }
-
-const styles = {
-  container: { with: "100dvw", padding: "50px", fontFamily: "sans-serif", backgroundColor: "#0d1017", color: "#FFF" },
-  header: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", backgroundColor: "#000", padding: "20px", borderRadius: "10px" },
-  searchinput: { borderRadius: "30px", height: "20px", padding: "10px 20px", border: "none", outline: "none", width: "200px", backgroundColor: "#1f2730", color: "#FFF" },
-  main: { display: "flex", gap: "20px", padding: "20px", backgroundColor: "#000", borderRadius: "10px" },
-  maincontent: { display: "flex", flexDirection: "column", flex: 5, gap: "20px", padding: "20px" },
-  right: { flex: 1 },
-  grid: { display: "grid", gridTemplateColumns: "3fr 10fr", gap: "16px" },
-  gridcards: { display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px" },
-  footer: { marginTop: "20px", fontSize: "12px", color: "#888" },
-};

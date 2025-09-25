@@ -28,7 +28,7 @@ const CoinCard = React.memo(({ coin }) => {
                     </div>
                 </div>
                 <div style={{ textAlign: 'right' }}>
-                    <div style={{ fontWeight: 700 }}>${coin.current_price.toLocaleString()}</div>
+                    <div style={{ fontWeight: 700, paddingBottom: '5px' }}>${coin.current_price.toLocaleString()}</div>
                     <div style={{ fontSize: 12, color: coin.price_change_percentage_24h >= 0 ? 'green' : 'red' }}>{coin.price_change_percentage_24h?.toFixed(2)}%</div>
                 </div>
             </div>

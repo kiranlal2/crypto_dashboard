@@ -15,7 +15,7 @@ return (
                 <div>
                     <strong>{coin.name}</strong>
                     <div style={{ fontSize: 12, color: '#999' }}>
-                        {coin.symbol.toUpperCase()}
+                        {coin.market_cap}
                     </div>
                 </div>
             </div>

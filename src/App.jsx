@@ -35,8 +35,8 @@ export default function App() {
   }, [query]);
 
   // fetch data
-  const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${page}`;
-  const { loading, error, data } = useFetch(url, [page], {
+  const baseurl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=${page}`;
+  const { loading, error, data } = useFetch(baseurl, [page], {
     cacheKey: `page-${page}`,
     refreshInterval: 10000,
   });
@@ -99,7 +99,7 @@ export default function App() {
         <section style={styles.maincontent}>
           <SearchFilter style={styles.filter} filter={filter} setFilter={setFilter} page={page} setPage={setPage} />
           <div style={styles.grid}>
-            <Sidebar />
+            <Sidebar data={data}  />
             <div style={styles.gridcards}>
               {loading && <div>Loading...</div>}
               {error && <div style={{ color: "red" }}>{error}</div>}

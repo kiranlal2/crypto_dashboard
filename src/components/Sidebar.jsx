@@ -1,6 +1,13 @@
 import React from 'react'
 
-export default function Sidebar() {
+export default function Sidebar({data}) {
+
+  const profitable = data
+  ?.filter((coin) => coin.price_change_percentage_24h > 0)
+  .sort((a, b) => b.price_change_percentage_24h - a.price_change_percentage_24h);
+
+
+
   return (
 
     <div>
@@ -14,18 +21,32 @@ export default function Sidebar() {
               <button style={styles.navbtn}>Liquid Staking</button>
             </nav>
         </aside>
+        {/* Active Staking */}
         <div style={styles.activestaking}>
-          <div style={styles.stakinghead}>Active Staking</div>
+          <div style={styles.stakinghead}>Active profitable coins</div>
           <ul style={styles.stackinglist}>
-            <li style={styles.stackingItem}>
-              <span>Ethereum</span><span style={{color: 'green'}}>$7,699</span>
-            </li>
-            <li style={styles.stackingItem}>
-              <span>Avalanche</span><span style={{color: 'red'}}>$1,340</span>
-            </li>
-            <li style={styles.stackingItem}>
-              <span>Polygon</span><span style={{color: 'green'}}>$540</span>
-            </li>
+            {profitable && profitable.length > 0 ? (
+              profitable.map((coin) => (
+                <li key={coin.id} style={styles.stackingItem}>
+                  <span>
+                    <img
+                      src={coin.image}
+                      alt={coin.name}
+                      width={20}
+                      height={20}
+                      style={{ marginRight: 8, verticalAlign: "middle" }}
+                    />
+                    {coin.name}
+                  </span>
+                  <span style={{ color: "green", textAlign: 'right' }}>
+                    ${coin.current_price.toLocaleString()} (
+                    {coin.price_change_percentage_24h.toFixed(2)}%)
+                  </span>
+                </li>
+              ))
+            ) : (
+              <li>No profitable coins</li>
+            )}
           </ul>
         </div>
     </div>

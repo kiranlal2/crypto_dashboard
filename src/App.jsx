@@ -77,7 +77,7 @@ export default function App() {
 
   // styles moved inside App to access isMobile
   const styles = {
-    container: { with: "100dvw", padding: "50px", fontFamily: "sans-serif", backgroundColor: "#0d1017", color: "#FFF" },
+    container: { with: "100dvw", padding: "20px", fontFamily: "sans-serif", backgroundColor: "#0d1017", color: "#FFF" },
     header: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", backgroundColor: "#000", padding: "20px", borderRadius: "10px" },
     searchinput: { borderRadius: "30px", height: "20px", padding: "10px 20px", border: "none", outline: "none", width: "200px", backgroundColor: "#1f2730", color: "#FFF" },
     main: { display: "flex", flexDirection: isMobile ? "column" : "row", gap: "20px", padding: "20px", backgroundColor: "#000", borderRadius: "10px" },
